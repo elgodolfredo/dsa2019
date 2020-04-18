@@ -8,7 +8,7 @@ const URLS = {
   session: 'https://github.com/session',
 }
 var jar = request.jar();
-const Repositories = new Repositories.Repositories();
+const manager = new Repositories.Repositories();
 
 request.get({ url : URLS.login, jar: jar}, (error, response, data) => {
   const $ = cheerio.load(data);
@@ -45,7 +45,7 @@ request.get({ url : URLS.login, jar: jar}, (error, response, data) => {
           var values = {
             vulnerability_id, url, file, code
           };
-          await Repositories.insert(values);
+          await manager.insert(values);
         }
       });
 
