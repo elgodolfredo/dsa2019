@@ -11,7 +11,8 @@ CREATE TABLE `repositories` (
     vulnerability_id INTEGER NOT NULL,
     url TEXT, 
     file TEXT,
-    code TEXT
+    code TEXT,
+    updated_at TEXT
 );
 
 -- Down 
