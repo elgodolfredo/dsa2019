@@ -24,11 +24,11 @@ class Repositories {
     }
 
     async all(){
-        return await DB().query('SELECT * FROM repositories');
+        return await DB().query('SELECT * FROM repositories r JOIN vulnerabilities v ON(r.vulnerability_id=v.id)');
     }
 
     async whereVulnerability(vulnerability_id){
-        return await DB().query('SELECT * FROM repositories WHERE vulnerability_id = ?', vulnerability_id);
+        return await DB().query('SELECT * FROM repositories r JOIN vulnerabilities v ON(r.vulnerability_id=v.id) WHERE vulnerability_id = ?', vulnerability_id);
     }
 
 }
